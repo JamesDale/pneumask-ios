@@ -13,6 +13,7 @@
 		1AE3841D2446B8C3006EC460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3841C2446B8C3006EC460 /* SceneDelegate.swift */; };
 		1AE384242446B8C5006EC460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AE384232446B8C5006EC460 /* Assets.xcassets */; };
 		1AE384272446B8C5006EC460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE384252446B8C5006EC460 /* LaunchScreen.storyboard */; };
+		1AE9C47B244865FC00BA9F4F /* ExperienceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9C47A244865FC00BA9F4F /* ExperienceCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1AE384232446B8C5006EC460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AE384262446B8C5006EC460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AE384282446B8C5006EC460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AE9C47A244865FC00BA9F4F /* ExperienceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +42,7 @@
 		1A4898BF24473A8900B5F4E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1AE3841E2446B8C3006EC460 /* MainViewController.swift */,
+				1AE9C479244865D800BA9F4F /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -81,6 +83,15 @@
 				1AE384282446B8C5006EC460 /* Info.plist */,
 			);
 			path = Pneumask;
+			sourceTree = "<group>";
+		};
+		1AE9C479244865D800BA9F4F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1AE3841E2446B8C3006EC460 /* MainViewController.swift */,
+				1AE9C47A244865FC00BA9F4F /* ExperienceCollectionViewCell.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 				1A4898C024473AD100B5F4E1 /* MainViewController.swift in Sources */,
 				1AE3841B2446B8C3006EC460 /* AppDelegate.swift in Sources */,
 				1A4898C324473C8D00B5F4E1 /* AudioController.swift in Sources */,
+				1AE9C47B244865FC00BA9F4F /* ExperienceCollectionViewCell.swift in Sources */,
 				1AE3841D2446B8C3006EC460 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
