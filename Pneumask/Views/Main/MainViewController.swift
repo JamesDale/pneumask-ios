@@ -8,10 +8,33 @@
 
 import UIKit
 
+protocol MainCollectionViewCell: UICollectionViewCell {
+    static var reuseIdentifier: String { get }
+}
+
 final class MainViewController: UICollectionViewController {
     
+    enum Item: CaseIterable {
+        case experience
+        case resources
+        case disclaimer
+        
+        var cellType: MainCollectionViewCell.Type {
+            switch self {
+            case .experience:
+                return ExperienceCollectionViewCell.self
+            case .resources:
+                return ResourcesCollectionViewCell.self
+            case .disclaimer:
+                return DisclaimerCollectionViewCell.self
+            }
+        }
+    }
+    
+    private let items: [Item] = [.experience, .resources, .disclaimer]
+    
     init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        super.init(collectionViewLayout: MainViewController.createLayout())
     }
     
     required init?(coder: NSCoder) {
@@ -20,8 +43,50 @@ final class MainViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .secondarySystemBackground
+        
+        Item.allCases.forEach {
+            collectionView.register($0.cellType,
+                                    forCellWithReuseIdentifier: $0.cellType.reuseIdentifier)
+        }
+    }
+    
+    static func createLayout() -> UICollectionViewLayout {
+        UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                  heightDimension: .estimated(40))
+            
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                   heightDimension: .estimated(400))
+            
+            let group: NSCollectionLayoutGroup = .vertical(layoutSize: groupSize,
+                                                             subitems: [item])
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 20,
+                                                            leading: 20,
+                                                            bottom: 20,
+                                                            trailing: 20)
+            section.interGroupSpacing = 20
+            return section
+        }
     }
 
 }
 
+extension MainViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        items.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let item = items[indexPath.item]
+        
+        return collectionView.dequeueReusableCell(withReuseIdentifier: item.cellType.reuseIdentifier,
+                                                  for: indexPath)
+    }
+}
