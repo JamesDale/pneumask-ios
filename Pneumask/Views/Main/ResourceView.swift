@@ -8,24 +8,33 @@
 
 import UIKit
 
-final class ResourceView: UIView {
+final class ResourceView: UIButton {
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.distribution = .equalSpacing
         return stackView
     }()
     
     let resourceTitleLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .systemBlue
+        label.font = .preferredFont(forTextStyle: .title3)
         return label
     }()
     
     let resourceIconView: UIImageView = {
-        UIImageView(image: UIImage(systemName: "safari.fill"))
+        let imageView = UIImageView(image: UIImage(systemName: "safari.fill"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.tintColor = .systemBlue
+        return imageView
     }()
     
     init() {
         super.init(frame: .zero)
+        
+        backgroundColor = .secondarySystemFill
+        layer.cornerRadius = 8
         
         addSubview(stackView)
         stackView.addArrangedSubview(resourceTitleLabel)
@@ -34,10 +43,10 @@ final class ResourceView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: rightAnchor),
+            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 12),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
         ])
     }
     

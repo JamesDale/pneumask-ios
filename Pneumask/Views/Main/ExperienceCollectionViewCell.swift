@@ -17,30 +17,16 @@ final class ExperienceCollectionViewCell: UICollectionViewCell, MainCollectionVi
         return stackView
     }()
     
-    let textStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.distribution = .fillProportionally
-        return stackView
-    }()
-    
     let maskImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "Pneumask"))
+        let imageView = UIImageView(image: UIImage(systemName: "arkit"))
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Experience Pneumask"
-        return label
-    }()
-    
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Tap here to experience pneumask firsthand"
-        label.numberOfLines = 2
+        label.text = "Tap here to experience trying on the pneumask"
+        label.numberOfLines = 0
         return label
     }()
     
@@ -52,13 +38,13 @@ final class ExperienceCollectionViewCell: UICollectionViewCell, MainCollectionVi
         
         addSubview(stackView)
         stackView.addArrangedSubview(maskImageView)
-        stackView.addArrangedSubview(textStackView)
+//        stackView.addArrangedSubview(textStackView)
         
-        textStackView.addArrangedSubview(titleLabel)
-        textStackView.addArrangedSubview(descriptionLabel)
+//        textStackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(descriptionLabel)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        textStackView.translatesAutoresizingMaskIntoConstraints = false
+//        textStackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -67,7 +53,7 @@ final class ExperienceCollectionViewCell: UICollectionViewCell, MainCollectionVi
             stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
             
-            textStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
+            descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.75),
             
             bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8)
         ])

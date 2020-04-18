@@ -17,6 +17,7 @@
 		1AE384272446B8C5006EC460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE384252446B8C5006EC460 /* LaunchScreen.storyboard */; };
 		1AE9C47B244865FC00BA9F4F /* ExperienceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9C47A244865FC00BA9F4F /* ExperienceCollectionViewCell.swift */; };
 		1AFE98812449F66400872349 /* ResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE98802449F66400872349 /* ResourceView.swift */; };
+		1AFE9883244A026E00872349 /* AmplifierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE9882244A026E00872349 /* AmplifierCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1AE384282446B8C5006EC460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE9C47A244865FC00BA9F4F /* ExperienceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCollectionViewCell.swift; sourceTree = "<group>"; };
 		1AFE98802449F66400872349 /* ResourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceView.swift; sourceTree = "<group>"; };
+		1AFE9882244A026E00872349 /* AmplifierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplifierCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				1AE9C47A244865FC00BA9F4F /* ExperienceCollectionViewCell.swift */,
 				1A4A04BF244870DE008F96F6 /* DisclaimerCollectionViewCell.swift */,
 				1A100D9D2449DD5400B07E0F /* ResourcesCollectionViewCell.swift */,
+				1AFE9882244A026E00872349 /* AmplifierCollectionViewCell.swift */,
 				1AFE98802449F66400872349 /* ResourceView.swift */,
 			);
 			path = Main;
@@ -175,6 +178,7 @@
 			files = (
 				1AFE98812449F66400872349 /* ResourceView.swift in Sources */,
 				1A4898C024473AD100B5F4E1 /* MainViewController.swift in Sources */,
+				1AFE9883244A026E00872349 /* AmplifierCollectionViewCell.swift in Sources */,
 				1A100D9E2449DD5400B07E0F /* ResourcesCollectionViewCell.swift in Sources */,
 				1AE3841B2446B8C3006EC460 /* AppDelegate.swift in Sources */,
 				1A4898C324473C8D00B5F4E1 /* AudioController.swift in Sources */,

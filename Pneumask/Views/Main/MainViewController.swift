@@ -14,10 +14,11 @@ protocol MainCollectionViewCell: UICollectionViewCell {
 
 final class MainViewController: UICollectionViewController {
     
-    enum Item: CaseIterable {
+    enum Item: CaseIterable, Hashable {
         case experience
         case resources
         case disclaimer
+        case amplifier
         
         var cellType: MainCollectionViewCell.Type {
             switch self {
@@ -27,11 +28,13 @@ final class MainViewController: UICollectionViewController {
                 return ResourcesCollectionViewCell.self
             case .disclaimer:
                 return DisclaimerCollectionViewCell.self
+            case .amplifier:
+                return AmplifierCollectionViewCell.self
             }
         }
     }
     
-    private let items: [Item] = [.experience, .resources, .disclaimer]
+    private var items: [Item] = [.amplifier, .experience, .resources, .disclaimer]
     
     init() {
         super.init(collectionViewLayout: MainViewController.createLayout())
@@ -88,5 +91,10 @@ extension MainViewController {
         
         return collectionView.dequeueReusableCell(withReuseIdentifier: item.cellType.reuseIdentifier,
                                                   for: indexPath)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        items.insert(.amplifier, at: 0)
+        collectionView.reloadData()
     }
 }

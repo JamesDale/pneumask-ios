@@ -21,6 +21,8 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
         return stackView
     }()
     
@@ -33,16 +35,44 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
         contentView.addSubview(titleLabel)
         contentView.addSubview(stackView)
         
+        let resources: [ResourceView] = [
+            {
+                let resourceView = ResourceView()
+                resourceView.resourceTitleLabel.text = "About Pneumask"
+                return resourceView
+            }(),
+            {
+                let resourceView = ResourceView()
+                resourceView.resourceTitleLabel.text = "Donning and Doffing Procedure"
+                return resourceView
+            }(),
+            {
+                let resourceView = ResourceView()
+                resourceView.resourceTitleLabel.text = "Decontamination Procedure"
+                return resourceView
+            }(),
+            {
+                let resourceView = ResourceView()
+                resourceView.resourceTitleLabel.text = "Donate"
+                return resourceView
+            }()
+        ]
+        
+        resources.forEach { stackView.addArrangedSubview($0) }
+        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
+            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
             
-            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
+            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
+            
+            bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12)
         ])
     }
     
