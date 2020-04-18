@@ -14,7 +14,7 @@ protocol MainCollectionViewCell: UICollectionViewCell {
 
 final class MainViewController: UICollectionViewController {
     
-    enum Item: CaseIterable, Hashable {
+    enum Item: CaseIterable {
         case experience
         case resources
         case disclaimer
@@ -91,10 +91,5 @@ extension MainViewController {
         
         return collectionView.dequeueReusableCell(withReuseIdentifier: item.cellType.reuseIdentifier,
                                                   for: indexPath)
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        items.insert(.amplifier, at: 0)
-        collectionView.reloadData()
     }
 }

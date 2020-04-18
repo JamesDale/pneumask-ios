@@ -36,33 +36,33 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
         contentView.addSubview(stackView)
         
         let resources: [ResourceView] = [
-            {
-                let resourceView = ResourceView()
-                resourceView.resourceTitleLabel.text = "About Pneumask"
-                return resourceView
-            }(),
-            {
-                let resourceView = ResourceView()
-                resourceView.resourceTitleLabel.text = "Donning and Doffing Procedure"
-                return resourceView
-            }(),
-            {
-                let resourceView = ResourceView()
-                resourceView.resourceTitleLabel.text = "Decontamination Procedure"
-                return resourceView
-            }(),
-            {
-                let resourceView = ResourceView()
-                resourceView.resourceTitleLabel.text = "Donate"
-                return resourceView
-            }()
+        {
+            let resourceView = ResourceView()
+            resourceView.resourceTitleLabel.text = "About Pneumask"
+            return resourceView
+        }(),
+        {
+            let resourceView = ResourceView()
+            resourceView.resourceTitleLabel.text = "Donning and Doffing Procedure"
+            return resourceView
+        }(),
+        {
+            let resourceView = ResourceView()
+            resourceView.resourceTitleLabel.text = "Decontamination Procedure"
+            return resourceView
+        }(),
+        {
+            let resourceView = ResourceView()
+            resourceView.resourceTitleLabel.text = "Donate"
+            return resourceView
+        }()
         ]
         
         resources.forEach { stackView.addArrangedSubview($0) }
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),

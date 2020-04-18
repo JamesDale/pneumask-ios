@@ -9,6 +9,7 @@
 import UIKit
 
 final class ExperienceCollectionViewCell: UICollectionViewCell, MainCollectionViewCell {
+    
     static let reuseIdentifier = "experienceCollectionViewCell"
     
     let stackView: UIStackView = {
@@ -38,13 +39,9 @@ final class ExperienceCollectionViewCell: UICollectionViewCell, MainCollectionVi
         
         addSubview(stackView)
         stackView.addArrangedSubview(maskImageView)
-//        stackView.addArrangedSubview(textStackView)
-        
-//        textStackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(descriptionLabel)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
-//        textStackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
