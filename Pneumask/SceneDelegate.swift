@@ -19,8 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         
+        let mainVC = MainViewController()
+        mainVC.navigationItem.title = "Pneumask"
+        mainVC.navigationItem.largeTitleDisplayMode = .automatic
+        
+        let navVC = UINavigationController(rootViewController: mainVC)
+        navVC.navigationBar.prefersLargeTitles = true
+        
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = MainViewController()
+        window?.rootViewController = navVC
         window?.makeKeyAndVisible()
     }
 
