@@ -1,5 +1,5 @@
 //
-//  ResourceView.swift
+//  ResourceButton.swift
 //  Pneumask
 //
 //  Created by James Dale on 18/4/20.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-final class ResourceView: UIButton {
+final class ResourceButton: UIView {
+
+  let resource: Resource
 
   let stackView: UIStackView = {
     let stackView = UIStackView()
@@ -30,8 +32,12 @@ final class ResourceView: UIButton {
     return imageView
   }()
 
-  init() {
+  init(_ resource: Resource) {
+    self.resource = resource
+
     super.init(frame: .zero)
+
+    resourceTitleLabel.text = resource.title
 
     backgroundColor = .secondarySystemFill
     layer.cornerRadius = 8

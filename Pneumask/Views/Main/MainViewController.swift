@@ -6,6 +6,7 @@
 //  Copyright © 2020 Prakash Lab. All rights reserved.
 //
 
+import SafariServices
 import UIKit
 
 protocol MainCollectionViewCell: UICollectionViewCell {
@@ -99,9 +100,22 @@ extension MainViewController {
     _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
     let item = items[indexPath.item]
-
-    return collectionView.dequeueReusableCell(
+    let cell = collectionView.dequeueReusableCell(
       withReuseIdentifier: item.cellType.reuseIdentifier,
       for: indexPath)
+
+    if let resourcesCell = cell as? ResourcesCollectionViewCell {
+      resourcesCell.delegate = self
+    }
+
+    return cell
+  }
+}
+
+extension MainViewController: ResourceCollectionViewCellDelegate {
+  func resourceSelected(_ resource: Resource) {
+    guard let url = resource.url else { return }
+    let sfVC = SFSafariViewController(url: url)
+    present(sfVC, animated: true)
   }
 }

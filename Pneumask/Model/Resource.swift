@@ -26,7 +26,7 @@ struct Resource {
     self.url = nil
   }
 
-  init(_ title: String, url: URL) {
+  init(_ title: String, url: URL?) {
     self.title = title
     self.url = url
     self.icon = nil

@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol ResourceCollectionViewCellDelegate {
+  func resourceSelected(_ resource: Resource)
+}
+
 final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionViewCell {
   static let reuseIdentifier = "resourcesCollectionViewCell"
+
+  var delegate: ResourceCollectionViewCellDelegate?
 
   let titleLabel: UILabel = {
     let label = UILabel()
@@ -36,19 +42,20 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
     contentView.addSubview(stackView)
 
     let resources: [Resource] = [
-      Resource("About Pneumask"),
-      Resource("Donning and Doffing Procedure"),
-      Resource("Decontamination Procedure"),
-      Resource("Donate"),
+      Resource("About Pneumask", url: Constants.URLs.about),
+      Resource("Donning and Doffing Procedure", url: Constants.URLs.donningAndDoffing),
+      Resource("Decontamination Procedure", url: Constants.URLs.decontamination),
+      Resource("Donate", url: Constants.URLs.donate),
     ]
 
-    let resourceViews: [ResourceView] = resources.map { (resource) in
-      let resourceView = ResourceView()
-      resourceView.resourceTitleLabel.text = resource.title
-      return resourceView
-    }
+    let resourceViews: [ResourceButton] = resources.map { ResourceButton($0) }
 
-    resourceViews.forEach { stackView.addArrangedSubview($0) }
+    for resourceView in resourceViews {
+      stackView.addArrangedSubview(resourceView)
+      resourceView.onTap(
+        self,
+        action: #selector(resourceTapped(sender:)))
+    }
 
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -68,5 +75,10 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+
+  @objc func resourceTapped(sender: UITapGestureRecognizer) {
+    guard let resourceView = sender.view as? ResourceButton else { return }
+    delegate?.resourceSelected(resourceView.resource)
   }
 }
