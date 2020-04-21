@@ -8,22 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		1A100D9E2449DD5400B07E0F /* ResourcesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A100D9D2449DD5400B07E0F /* ResourcesCollectionViewCell.swift */; };
+		1A21D849244ED4DA0031EEA9 /* Seperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D848244ED4DA0031EEA9 /* Seperator.swift */; };
+		1A21D84C244ED8500031EEA9 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D84B244ED8500031EEA9 /* Resource.swift */; };
+		1A21D84E244EDC540031EEA9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21D84D244EDC540031EEA9 /* Constants.swift */; };
 		1A4898C024473AD100B5F4E1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3841E2446B8C3006EC460 /* MainViewController.swift */; };
 		1A4898C324473C8D00B5F4E1 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4898C224473C8D00B5F4E1 /* AudioController.swift */; };
 		1A4A04C0244870DE008F96F6 /* DisclaimerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4A04BF244870DE008F96F6 /* DisclaimerCollectionViewCell.swift */; };
+		1A8415ED244EF2B400856EB2 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8415EC244EF2B400856EB2 /* UIView+Extensions.swift */; };
+		1A8415EF244F05E600856EB2 /* AmplifierDeviceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8415EE244F05E600856EB2 /* AmplifierDeviceCollectionViewCell.swift */; };
 		1AE3841B2446B8C3006EC460 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3841A2446B8C3006EC460 /* AppDelegate.swift */; };
 		1AE3841D2446B8C3006EC460 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE3841C2446B8C3006EC460 /* SceneDelegate.swift */; };
 		1AE384242446B8C5006EC460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AE384232446B8C5006EC460 /* Assets.xcassets */; };
 		1AE384272446B8C5006EC460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AE384252446B8C5006EC460 /* LaunchScreen.storyboard */; };
 		1AE9C47B244865FC00BA9F4F /* ExperienceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE9C47A244865FC00BA9F4F /* ExperienceCollectionViewCell.swift */; };
-		1AFE98812449F66400872349 /* ResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE98802449F66400872349 /* ResourceView.swift */; };
+		1AFE98812449F66400872349 /* ResourceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE98802449F66400872349 /* ResourceButton.swift */; };
 		1AFE9883244A026E00872349 /* AmplifierCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE9882244A026E00872349 /* AmplifierCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A100D9D2449DD5400B07E0F /* ResourcesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesCollectionViewCell.swift; sourceTree = "<group>"; };
+		1A21D848244ED4DA0031EEA9 /* Seperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seperator.swift; sourceTree = "<group>"; };
+		1A21D84B244ED8500031EEA9 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		1A21D84D244EDC540031EEA9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1A4898C224473C8D00B5F4E1 /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		1A4A04BF244870DE008F96F6 /* DisclaimerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerCollectionViewCell.swift; sourceTree = "<group>"; };
+		1A8415EC244EF2B400856EB2 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		1A8415EE244F05E600856EB2 /* AmplifierDeviceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplifierDeviceCollectionViewCell.swift; sourceTree = "<group>"; };
 		1AE384172446B8C3006EC460 /* Pneumask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pneumask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AE3841A2446B8C3006EC460 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AE3841C2446B8C3006EC460 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +42,7 @@
 		1AE384262446B8C5006EC460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1AE384282446B8C5006EC460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AE9C47A244865FC00BA9F4F /* ExperienceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceCollectionViewCell.swift; sourceTree = "<group>"; };
-		1AFE98802449F66400872349 /* ResourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceView.swift; sourceTree = "<group>"; };
+		1AFE98802449F66400872349 /* ResourceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceButton.swift; sourceTree = "<group>"; };
 		1AFE9882244A026E00872349 /* AmplifierCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmplifierCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,9 +57,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A21D847244ED4D10031EEA9 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				1A21D848244ED4DA0031EEA9 /* Seperator.swift */,
+				1AFE98802449F66400872349 /* ResourceButton.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		1A21D84A244ED8460031EEA9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A21D84B244ED8500031EEA9 /* Resource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1A4898BF24473A8900B5F4E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1A8415EC244EF2B400856EB2 /* UIView+Extensions.swift */,
+				1A21D847244ED4D10031EEA9 /* Generic */,
 				1AE9C479244865D800BA9F4F /* Main */,
 			);
 			path = Views;
@@ -82,6 +111,8 @@
 		1AE384192446B8C3006EC460 /* Pneumask */ = {
 			isa = PBXGroup;
 			children = (
+				1A21D84D244EDC540031EEA9 /* Constants.swift */,
+				1A21D84A244ED8460031EEA9 /* Model */,
 				1A4898C124473C7F00B5F4E1 /* Controllers */,
 				1A4898BF24473A8900B5F4E1 /* Views */,
 				1AE3841A2446B8C3006EC460 /* AppDelegate.swift */,
@@ -101,7 +132,7 @@
 				1A4A04BF244870DE008F96F6 /* DisclaimerCollectionViewCell.swift */,
 				1A100D9D2449DD5400B07E0F /* ResourcesCollectionViewCell.swift */,
 				1AFE9882244A026E00872349 /* AmplifierCollectionViewCell.swift */,
-				1AFE98802449F66400872349 /* ResourceView.swift */,
+				1A8415EE244F05E600856EB2 /* AmplifierDeviceCollectionViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -116,12 +147,15 @@
 				1AE384132446B8C3006EC460 /* Sources */,
 				1AE384142446B8C3006EC460 /* Frameworks */,
 				1AE384152446B8C3006EC460 /* Resources */,
+				1AFE9886244AC42800872349 /* Swift-Format */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Pneumask;
+			packageProductDependencies = (
+			);
 			productName = Pneumask;
 			productReference = 1AE384172446B8C3006EC460 /* Pneumask.app */;
 			productType = "com.apple.product-type.application";
@@ -150,6 +184,8 @@
 				Base,
 			);
 			mainGroup = 1AE3840E2446B8C3006EC460;
+			packageReferences = (
+			);
 			productRefGroup = 1AE384182446B8C3006EC460 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,20 +207,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1AFE9886244AC42800872349 /* Swift-Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift-Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swift-format >/dev/null; then\n    swift-format -m format -i -r ${PROJECT_DIR}\nelse\n    echo \"warning: swift-format not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1AE384132446B8C3006EC460 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AFE98812449F66400872349 /* ResourceView.swift in Sources */,
+				1AFE98812449F66400872349 /* ResourceButton.swift in Sources */,
 				1A4898C024473AD100B5F4E1 /* MainViewController.swift in Sources */,
 				1AFE9883244A026E00872349 /* AmplifierCollectionViewCell.swift in Sources */,
+				1A21D84C244ED8500031EEA9 /* Resource.swift in Sources */,
 				1A100D9E2449DD5400B07E0F /* ResourcesCollectionViewCell.swift in Sources */,
+				1A8415ED244EF2B400856EB2 /* UIView+Extensions.swift in Sources */,
 				1AE3841B2446B8C3006EC460 /* AppDelegate.swift in Sources */,
 				1A4898C324473C8D00B5F4E1 /* AudioController.swift in Sources */,
 				1AE9C47B244865FC00BA9F4F /* ExperienceCollectionViewCell.swift in Sources */,
+				1A21D849244ED4DA0031EEA9 /* Seperator.swift in Sources */,
 				1AE3841D2446B8C3006EC460 /* SceneDelegate.swift in Sources */,
 				1A4A04C0244870DE008F96F6 /* DisclaimerCollectionViewCell.swift in Sources */,
+				1A8415EF244F05E600856EB2 /* AmplifierDeviceCollectionViewCell.swift in Sources */,
+				1A21D84E244EDC540031EEA9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

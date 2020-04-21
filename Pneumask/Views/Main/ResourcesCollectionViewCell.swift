@@ -8,75 +8,90 @@
 
 import UIKit
 
+protocol ResourceCollectionViewCellDelegate {
+  func resourceSelected(_ resource: Resource)
+}
+
 final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionViewCell {
-    static let reuseIdentifier = "resourcesCollectionViewCell"
-    
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Resources"
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
-        label.adjustsFontForContentSizeCategory = true
-        return label
-    }()
-    
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        return stackView
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        backgroundColor = .systemBackground
-        layer.cornerRadius = 12
-        
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(stackView)
-        
-        let resources: [ResourceView] = [
-        {
-            let resourceView = ResourceView()
-            resourceView.resourceTitleLabel.text = "About Pneumask"
-            return resourceView
-        }(),
-        {
-            let resourceView = ResourceView()
-            resourceView.resourceTitleLabel.text = "Donning and Doffing Procedure"
-            return resourceView
-        }(),
-        {
-            let resourceView = ResourceView()
-            resourceView.resourceTitleLabel.text = "Decontamination Procedure"
-            return resourceView
-        }(),
-        {
-            let resourceView = ResourceView()
-            resourceView.resourceTitleLabel.text = "Donate"
-            return resourceView
-        }()
-        ]
-        
-        resources.forEach { stackView.addArrangedSubview($0) }
-        
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
-            
-            stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
-            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
-            
-            bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12)
-        ])
+  static let reuseIdentifier = "resourcesCollectionViewCell"
+
+  var delegate: ResourceCollectionViewCellDelegate?
+
+  let titleLabel: UILabel = {
+    let label = UILabel()
+    label.text = "Resources"
+    label.font = UIFont.preferredFont(forTextStyle: .headline)
+    label.adjustsFontForContentSizeCategory = true
+    return label
+  }()
+
+  let stackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.axis = .vertical
+    stackView.spacing = 8
+    return stackView
+  }()
+
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+
+    backgroundColor = .systemBackground
+    layer.cornerRadius = 12
+
+    contentView.addSubview(titleLabel)
+    contentView.addSubview(stackView)
+
+    let resources: [Resource] = [
+      Resource("About Pneumask", url: Constants.URLs.about),
+      Resource("Donning and Doffing Procedure", url: Constants.URLs.donningAndDoffing),
+      Resource("Decontamination Procedure", url: Constants.URLs.decontamination),
+      Resource("Donate", url: Constants.URLs.donate),
+    ]
+
+    let resourceViews: [ResourceButton] = resources.map { ResourceButton($0) }
+
+    for resourceView in resourceViews {
+      stackView.addArrangedSubview(resourceView)
+      resourceView.onTap(
+        self,
+        action: #selector(resourceTapped(sender:)))
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
+    updateConstraints()
+
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  @objc func resourceTapped(sender: UITapGestureRecognizer) {
+    guard let resourceView = sender.view as? ResourceButton else { return }
+    delegate?.resourceSelected(resourceView.resource)
+  }
+
+  // NOTE:
+  // Ideally we can set the bottom anchor here and reload the cell if needed.
+  // Unfortunately, due to https://openradar.appspot.com/23728611
+  // We need to set the height constraint manually. 🤮
+  // Right now, we just avoid reloading this cell. But if it ever comes to it...
+
+  override func updateConstraints() {
+    super.updateConstraints()
+
+    titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+      titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+      titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+
+      stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+      stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+      stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+
+      bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12),
+    ])
+  }
 }
