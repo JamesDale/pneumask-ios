@@ -34,7 +34,7 @@ final class MainViewController: UICollectionViewController {
         }
     }
     
-    private var items: [Item] = [.amplifier, .experience, .resources, .disclaimer]
+    private var items: [Item] = [.experience, .resources, .disclaimer]
     
     init() {
         super.init(collectionViewLayout: MainViewController.createLayout())

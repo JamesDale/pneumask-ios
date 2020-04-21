@@ -65,12 +65,12 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             
             stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
-            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             
             bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12)
         ])

@@ -50,16 +50,16 @@ final class DisclaimerCollectionViewCell: UICollectionViewCell, MainCollectionVi
         
         NSLayoutConstraint.activate([
             topAnchor.constraint(equalTo: contentView.topAnchor),
-            leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             
             disclaimerLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            disclaimerLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
-            disclaimerLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
+            disclaimerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            disclaimerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             
             bottomAnchor.constraint(equalTo: disclaimerLabel.bottomAnchor, constant: 12)
         ])
