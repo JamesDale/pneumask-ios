@@ -9,18 +9,18 @@
 import UIKit
 
 final class UISeperator: UIView {
-    
-    init() {
-        super.init(frame: .zero)
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemGray
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(lessThanOrEqualToConstant: 2)
-        ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
+  init() {
+    super.init(frame: .zero)
+    translatesAutoresizingMaskIntoConstraints = false
+    backgroundColor = .systemGray
+    NSLayoutConstraint.activate([
+      heightAnchor.constraint(lessThanOrEqualToConstant: 2)
+    ])
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
 }
