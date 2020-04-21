@@ -99,7 +99,7 @@ extension MainViewController {
   override func collectionView(
     _ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath
   ) {
-    if collectionView.cellForItem(at: indexPath) is AmplifierCollectionViewCell {
+    if let amplifier = collectionView.cellForItem(at: indexPath) as? AmplifierCollectionViewCell {
       items.remove(at: indexPath.item)
       items.insert(.amplifierDevice, at: 0)
       collectionView.reloadItems(at: [indexPath])

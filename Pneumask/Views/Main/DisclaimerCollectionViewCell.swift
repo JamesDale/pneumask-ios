@@ -19,6 +19,8 @@ final class DisclaimerCollectionViewCell: UICollectionViewCell, MainCollectionVi
     return label
   }()
 
+  let seperator = UISeparator()
+
   let disclaimerLabel: UILabel = {
     let label = UILabel()
     label.text = """
@@ -40,9 +42,11 @@ final class DisclaimerCollectionViewCell: UICollectionViewCell, MainCollectionVi
     layer.cornerRadius = 12
 
     contentView.addSubview(titleLabel)
+    contentView.addSubview(seperator)
     contentView.addSubview(disclaimerLabel)
 
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    seperator.translatesAutoresizingMaskIntoConstraints = false
     disclaimerLabel.translatesAutoresizingMaskIntoConstraints = false
     contentView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -57,7 +61,11 @@ final class DisclaimerCollectionViewCell: UICollectionViewCell, MainCollectionVi
       titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
       titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
 
-      disclaimerLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+      seperator.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+      seperator.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+      seperator.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+
+      disclaimerLabel.topAnchor.constraint(equalTo: seperator.bottomAnchor, constant: 12),
       disclaimerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
       disclaimerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
 

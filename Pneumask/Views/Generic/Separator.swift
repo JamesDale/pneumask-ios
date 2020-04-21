@@ -1,5 +1,5 @@
 //
-//  Seperator.swift
+//  Separator.swift
 //  Pneumask
 //
 //  Created by James Dale on 21/4/20.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-final class UISeperator: UIView {
+final class UISeparator: UIView {
 
   init() {
     super.init(frame: .zero)
     translatesAutoresizingMaskIntoConstraints = false
-    backgroundColor = .systemGray
+    backgroundColor = .secondarySystemBackground
     NSLayoutConstraint.activate([
-      heightAnchor.constraint(lessThanOrEqualToConstant: 2)
+      heightAnchor.constraint(equalToConstant: 2)
     ])
   }
 

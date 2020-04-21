@@ -25,6 +25,8 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
     return label
   }()
 
+  let seperator = UISeparator()
+
   let stackView: UIStackView = {
     let stackView = UIStackView()
     stackView.axis = .vertical
@@ -39,6 +41,7 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
     layer.cornerRadius = 12
 
     contentView.addSubview(titleLabel)
+    contentView.addSubview(seperator)
     contentView.addSubview(stackView)
 
     let resources: [Resource] = [
@@ -80,6 +83,7 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
     super.updateConstraints()
 
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
+    seperator.translatesAutoresizingMaskIntoConstraints = false
     stackView.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
@@ -87,7 +91,11 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
       titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
       titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
 
-      stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+      seperator.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
+      seperator.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+      seperator.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+
+      stackView.topAnchor.constraint(equalTo: seperator.bottomAnchor, constant: 12),
       stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
       stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
 
