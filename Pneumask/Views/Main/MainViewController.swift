@@ -139,6 +139,7 @@ extension MainViewController {
 extension MainViewController: ResourceCollectionViewCellDelegate {
   func resourceSelected(_ resource: Resource) {
     guard let url = resource.url else { return }
+    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
     present(SFSafariViewController(url: url), animated: true)
   }
 }
