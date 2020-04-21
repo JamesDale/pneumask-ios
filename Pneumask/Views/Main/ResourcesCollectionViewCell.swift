@@ -35,30 +35,20 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
     contentView.addSubview(titleLabel)
     contentView.addSubview(stackView)
 
-    let resources: [ResourceView] = [
-      {
-        let resourceView = ResourceView()
-        resourceView.resourceTitleLabel.text = "About Pneumask"
-        return resourceView
-      }(),
-      {
-        let resourceView = ResourceView()
-        resourceView.resourceTitleLabel.text = "Donning and Doffing Procedure"
-        return resourceView
-      }(),
-      {
-        let resourceView = ResourceView()
-        resourceView.resourceTitleLabel.text = "Decontamination Procedure"
-        return resourceView
-      }(),
-      {
-        let resourceView = ResourceView()
-        resourceView.resourceTitleLabel.text = "Donate"
-        return resourceView
-      }(),
+    let resources: [Resource] = [
+      Resource("About Pneumask"),
+      Resource("Donning and Doffing Procedure"),
+      Resource("Decontamination Procedure"),
+      Resource("Donate"),
     ]
 
-    resources.forEach { stackView.addArrangedSubview($0) }
+    let resourceViews: [ResourceView] = resources.map { (resource) in
+      let resourceView = ResourceView()
+      resourceView.resourceTitleLabel.text = resource.title
+      return resourceView
+    }
+
+    resourceViews.forEach { stackView.addArrangedSubview($0) }
 
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     stackView.translatesAutoresizingMaskIntoConstraints = false
