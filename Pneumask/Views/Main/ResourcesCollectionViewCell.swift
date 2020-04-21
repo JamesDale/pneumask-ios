@@ -57,6 +57,28 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
         action: #selector(resourceTapped(sender:)))
     }
 
+    updateConstraints()
+
+  }
+
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
+  @objc func resourceTapped(sender: UITapGestureRecognizer) {
+    guard let resourceView = sender.view as? ResourceButton else { return }
+    delegate?.resourceSelected(resourceView.resource)
+  }
+
+  // NOTE:
+  // Ideally we can set the bottom anchor here and reload the cell if needed.
+  // Unfortunately, due to https://openradar.appspot.com/23728611
+  // We need to set the height constraint manually. 🤮
+  // Right now, we just avoid reloading this cell. But if it ever comes to it...
+
+  override func updateConstraints() {
+    super.updateConstraints()
+
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     stackView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -71,14 +93,5 @@ final class ResourcesCollectionViewCell: UICollectionViewCell, MainCollectionVie
 
       bottomAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12),
     ])
-  }
-
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-  @objc func resourceTapped(sender: UITapGestureRecognizer) {
-    guard let resourceView = sender.view as? ResourceButton else { return }
-    delegate?.resourceSelected(resourceView.resource)
   }
 }

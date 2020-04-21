@@ -6,6 +6,7 @@
 //  Copyright © 2020 Prakash Lab. All rights reserved.
 //
 
+import MediaPlayer
 import SafariServices
 import UIKit
 
@@ -16,10 +17,13 @@ protocol MainCollectionViewCell: UICollectionViewCell {
 final class MainViewController: UICollectionViewController {
 
   enum Item: CaseIterable {
+
     case experience
     case resources
     case disclaimer
+
     case amplifier
+    case amplifierDevice
 
     var cellType: MainCollectionViewCell.Type {
       switch self {
@@ -31,11 +35,13 @@ final class MainViewController: UICollectionViewController {
         return DisclaimerCollectionViewCell.self
       case .amplifier:
         return AmplifierCollectionViewCell.self
+      case .amplifierDevice:
+        return AmplifierDeviceCollectionViewCell.self
       }
     }
   }
 
-  private var items: [Item] = [.experience, .resources, .disclaimer]
+  private var items: [Item] = [.amplifier, .experience, .resources, .disclaimer]
 
   init() {
     super.init(collectionViewLayout: MainViewController.createLayout())
@@ -88,6 +94,24 @@ final class MainViewController: UICollectionViewController {
 
 }
 
+// MARK: - UICollectionView Delegate
+extension MainViewController {
+  override func collectionView(
+    _ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath
+  ) {
+    if collectionView.cellForItem(at: indexPath) is AmplifierCollectionViewCell {
+      items.remove(at: indexPath.item)
+      items.insert(.amplifierDevice, at: 0)
+      collectionView.reloadItems(at: [indexPath])
+    } else if let deviceCell = collectionView.cellForItem(at: indexPath)
+      as? AmplifierDeviceCollectionViewCell
+    {
+
+    }
+  }
+}
+
+// MARK: - UICollectionView Data Source
 extension MainViewController {
 
   override func collectionView(
@@ -115,7 +139,6 @@ extension MainViewController {
 extension MainViewController: ResourceCollectionViewCellDelegate {
   func resourceSelected(_ resource: Resource) {
     guard let url = resource.url else { return }
-    let sfVC = SFSafariViewController(url: url)
-    present(sfVC, animated: true)
+    present(SFSafariViewController(url: url), animated: true)
   }
 }

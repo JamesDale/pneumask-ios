@@ -6,6 +6,7 @@
 //  Copyright © 2020 Prakash Lab. All rights reserved.
 //
 
+import MediaPlayer.MPVolumeView
 import UIKit
 
 final class AmplifierCollectionViewCell: UICollectionViewCell, MainCollectionViewCell {
@@ -18,10 +19,11 @@ final class AmplifierCollectionViewCell: UICollectionViewCell, MainCollectionVie
     return stackView
   }()
 
-  let maskImageView: UIImageView = {
-    let imageView = UIImageView(image: UIImage(systemName: "waveform"))
-    imageView.contentMode = .scaleAspectFit
-    return imageView
+  let mediaBtn: MPVolumeView = {
+    let mediaBtn = MPVolumeView()
+    mediaBtn.showsVolumeSlider = false
+    mediaBtn.tintColor = .blue
+    return mediaBtn
   }()
 
   let descriptionLabel: UILabel = {
@@ -38,7 +40,7 @@ final class AmplifierCollectionViewCell: UICollectionViewCell, MainCollectionVie
     layer.cornerRadius = 12
 
     addSubview(stackView)
-    stackView.addArrangedSubview(maskImageView)
+    stackView.addArrangedSubview(mediaBtn)
     stackView.addArrangedSubview(descriptionLabel)
 
     stackView.translatesAutoresizingMaskIntoConstraints = false

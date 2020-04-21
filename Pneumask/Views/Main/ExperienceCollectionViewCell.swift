@@ -26,7 +26,7 @@ final class ExperienceCollectionViewCell: UICollectionViewCell, MainCollectionVi
 
   let descriptionLabel: UILabel = {
     let label = UILabel()
-    label.text = "Tap here to experience trying on the pneumask"
+    label.text = "Tap to experience trying on pneumask"
     label.numberOfLines = 0
     return label
   }()
@@ -45,9 +45,9 @@ final class ExperienceCollectionViewCell: UICollectionViewCell, MainCollectionVi
     contentView.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
-      stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
+      stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
       stackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-      stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8),
+      stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
       stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
 
       descriptionLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.75),
