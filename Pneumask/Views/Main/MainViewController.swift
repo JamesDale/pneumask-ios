@@ -41,7 +41,7 @@ final class MainViewController: UICollectionViewController {
     }
   }
 
-  private var items: [Item] = [.amplifier, .experience, .resources, .disclaimer]
+  private var items: [Item] = [.resources, .disclaimer]
 
   init() {
     super.init(collectionViewLayout: MainViewController.createLayout())
@@ -99,14 +99,15 @@ extension MainViewController {
   override func collectionView(
     _ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath
   ) {
-    if let amplifier = collectionView.cellForItem(at: indexPath) as? AmplifierCollectionViewCell {
+    if let _ = collectionView.cellForItem(at: indexPath) as? AmplifierCollectionViewCell {
       items.remove(at: indexPath.item)
       items.insert(.amplifierDevice, at: 0)
       collectionView.reloadItems(at: [indexPath])
-    } else if let deviceCell = collectionView.cellForItem(at: indexPath)
-      as? AmplifierDeviceCollectionViewCell
+    } else if let _ = collectionView.cellForItem(at: indexPath)
+      as? ExperienceCollectionViewCell
     {
-
+      let experienceVC = ExperienceViewController()
+      present(experienceVC, animated: true)
     }
   }
 }
